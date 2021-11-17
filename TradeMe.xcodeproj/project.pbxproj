@@ -7,14 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		51D0C11E274444C00031FB37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C11D274444C00031FB37 /* AppDelegate.swift */; };
-		51D0C122274444C00031FB37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C121274444C00031FB37 /* ViewController.swift */; };
-		51D0C125274444C00031FB37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51D0C123274444C00031FB37 /* Main.storyboard */; };
+		51D0C122274444C00031FB37 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C121274444C00031FB37 /* MainViewController.swift */; };
 		51D0C127274444C20031FB37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51D0C126274444C20031FB37 /* Assets.xcassets */; };
 		51D0C12A274444C20031FB37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51D0C128274444C20031FB37 /* LaunchScreen.storyboard */; };
 		51D0C135274444C20031FB37 /* TradeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C134274444C20031FB37 /* TradeMeTests.swift */; };
 		51D0C13F274444C20031FB37 /* TradeMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C13E274444C20031FB37 /* TradeMeUITests.swift */; };
 		51D0C141274444C20031FB37 /* TradeMeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C140274444C20031FB37 /* TradeMeUITestsLaunchTests.swift */; };
+		51D0C1522744C3CD0031FB37 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C1512744C3CD0031FB37 /* ServerManager.swift */; };
+		51D0C1532744C4430031FB37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C11D274444C00031FB37 /* AppDelegate.swift */; };
+		51D0C1552744C9E20031FB37 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C1542744C9E20031FB37 /* DiscoverViewController.swift */; };
+		51D0C1572744D1950031FB37 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C1562744D1950031FB37 /* Extensions.swift */; };
+		51D0C1592744D2770031FB37 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C1582744D2770031FB37 /* Theme.swift */; };
+		51D0C15B2744D2C30031FB37 /* Localisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C15A2744D2C30031FB37 /* Localisation.swift */; };
+		51D0C15D2744D2F00031FB37 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C15C2744D2F00031FB37 /* NotificationsViewController.swift */; };
+		51D0C15F2744D3090031FB37 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C15E2744D3090031FB37 /* WatchlistViewController.swift */; };
+		51D0C1612744D32F0031FB37 /* MyTradeMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C1602744D32F0031FB37 /* MyTradeMeViewController.swift */; };
+		51D0C1632744D4000031FB37 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C1622744D4000031FB37 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +45,7 @@
 /* Begin PBXFileReference section */
 		51D0C11A274444C00031FB37 /* TradeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D0C11D274444C00031FB37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		51D0C121274444C00031FB37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		51D0C124274444C00031FB37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		51D0C121274444C00031FB37 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		51D0C126274444C20031FB37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51D0C129274444C20031FB37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51D0C12B274444C20031FB37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +54,15 @@
 		51D0C13A274444C20031FB37 /* TradeMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TradeMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D0C13E274444C20031FB37 /* TradeMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeMeUITests.swift; sourceTree = "<group>"; };
 		51D0C140274444C20031FB37 /* TradeMeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeMeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		51D0C1512744C3CD0031FB37 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
+		51D0C1542744C9E20031FB37 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		51D0C1562744D1950031FB37 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		51D0C1582744D2770031FB37 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		51D0C15A2744D2C30031FB37 /* Localisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localisation.swift; sourceTree = "<group>"; };
+		51D0C15C2744D2F00031FB37 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		51D0C15E2744D3090031FB37 /* WatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewController.swift; sourceTree = "<group>"; };
+		51D0C1602744D32F0031FB37 /* MyTradeMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTradeMeViewController.swift; sourceTree = "<group>"; };
+		51D0C1622744D4000031FB37 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +113,12 @@
 		51D0C11C274444C00031FB37 /* TradeMe */ = {
 			isa = PBXGroup;
 			children = (
+				51D0C1502744C3C20031FB37 /* Util */,
+				51D0C14F2744C1C60031FB37 /* View */,
+				51D0C14E2744C1BB0031FB37 /* Model */,
+				51D0C14D2744C1B10031FB37 /* ViewModel */,
 				51D0C11D274444C00031FB37 /* AppDelegate.swift */,
-				51D0C121274444C00031FB37 /* ViewController.swift */,
-				51D0C123274444C00031FB37 /* Main.storyboard */,
+				51D0C121274444C00031FB37 /* MainViewController.swift */,
 				51D0C126274444C20031FB37 /* Assets.xcassets */,
 				51D0C128274444C20031FB37 /* LaunchScreen.storyboard */,
 				51D0C12B274444C20031FB37 /* Info.plist */,
@@ -122,6 +141,43 @@
 				51D0C140274444C20031FB37 /* TradeMeUITestsLaunchTests.swift */,
 			);
 			path = TradeMeUITests;
+			sourceTree = "<group>";
+		};
+		51D0C14D2744C1B10031FB37 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		51D0C14E2744C1BB0031FB37 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		51D0C14F2744C1C60031FB37 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				51D0C1542744C9E20031FB37 /* DiscoverViewController.swift */,
+				51D0C15C2744D2F00031FB37 /* NotificationsViewController.swift */,
+				51D0C15E2744D3090031FB37 /* WatchlistViewController.swift */,
+				51D0C1602744D32F0031FB37 /* MyTradeMeViewController.swift */,
+				51D0C1622744D4000031FB37 /* BaseViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		51D0C1502744C3C20031FB37 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				51D0C1512744C3CD0031FB37 /* ServerManager.swift */,
+				51D0C1562744D1950031FB37 /* Extensions.swift */,
+				51D0C1582744D2770031FB37 /* Theme.swift */,
+				51D0C15A2744D2C30031FB37 /* Localisation.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,7 +286,6 @@
 			files = (
 				51D0C12A274444C20031FB37 /* LaunchScreen.storyboard in Resources */,
 				51D0C127274444C20031FB37 /* Assets.xcassets in Resources */,
-				51D0C125274444C00031FB37 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,8 +310,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51D0C122274444C00031FB37 /* ViewController.swift in Sources */,
-				51D0C11E274444C00031FB37 /* AppDelegate.swift in Sources */,
+				51D0C1572744D1950031FB37 /* Extensions.swift in Sources */,
+				51D0C1532744C4430031FB37 /* AppDelegate.swift in Sources */,
+				51D0C1632744D4000031FB37 /* BaseViewController.swift in Sources */,
+				51D0C15B2744D2C30031FB37 /* Localisation.swift in Sources */,
+				51D0C1612744D32F0031FB37 /* MyTradeMeViewController.swift in Sources */,
+				51D0C1552744C9E20031FB37 /* DiscoverViewController.swift in Sources */,
+				51D0C1592744D2770031FB37 /* Theme.swift in Sources */,
+				51D0C122274444C00031FB37 /* MainViewController.swift in Sources */,
+				51D0C15F2744D3090031FB37 /* WatchlistViewController.swift in Sources */,
+				51D0C1522744C3CD0031FB37 /* ServerManager.swift in Sources */,
+				51D0C15D2744D2F00031FB37 /* NotificationsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +357,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		51D0C123274444C00031FB37 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				51D0C124274444C00031FB37 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		51D0C128274444C20031FB37 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -440,7 +496,6 @@
 				INFOPLIST_FILE = TradeMe/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -468,7 +523,6 @@
 				INFOPLIST_FILE = TradeMe/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
