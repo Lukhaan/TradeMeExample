@@ -23,6 +23,7 @@
 		51D0C15F2744D3090031FB37 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C15E2744D3090031FB37 /* WatchlistViewController.swift */; };
 		51D0C1612744D32F0031FB37 /* MyTradeMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C1602744D32F0031FB37 /* MyTradeMeViewController.swift */; };
 		51D0C1632744D4000031FB37 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C1622744D4000031FB37 /* BaseViewController.swift */; };
+		51D0C1652744D5360031FB37 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C1642744D5360031FB37 /* Icon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		51D0C15E2744D3090031FB37 /* WatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewController.swift; sourceTree = "<group>"; };
 		51D0C1602744D32F0031FB37 /* MyTradeMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTradeMeViewController.swift; sourceTree = "<group>"; };
 		51D0C1622744D4000031FB37 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		51D0C1642744D5360031FB37 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				51D0C14D2744C1B10031FB37 /* ViewModel */,
 				51D0C11D274444C00031FB37 /* AppDelegate.swift */,
 				51D0C121274444C00031FB37 /* MainViewController.swift */,
+				51D0C1622744D4000031FB37 /* BaseViewController.swift */,
 				51D0C126274444C20031FB37 /* Assets.xcassets */,
 				51D0C128274444C20031FB37 /* LaunchScreen.storyboard */,
 				51D0C12B274444C20031FB37 /* Info.plist */,
@@ -164,7 +167,6 @@
 				51D0C15C2744D2F00031FB37 /* NotificationsViewController.swift */,
 				51D0C15E2744D3090031FB37 /* WatchlistViewController.swift */,
 				51D0C1602744D32F0031FB37 /* MyTradeMeViewController.swift */,
-				51D0C1622744D4000031FB37 /* BaseViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -176,6 +178,7 @@
 				51D0C1562744D1950031FB37 /* Extensions.swift */,
 				51D0C1582744D2770031FB37 /* Theme.swift */,
 				51D0C15A2744D2C30031FB37 /* Localisation.swift */,
+				51D0C1642744D5360031FB37 /* Icon.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			files = (
 				51D0C1572744D1950031FB37 /* Extensions.swift in Sources */,
 				51D0C1532744C4430031FB37 /* AppDelegate.swift in Sources */,
+				51D0C1652744D5360031FB37 /* Icon.swift in Sources */,
 				51D0C1632744D4000031FB37 /* BaseViewController.swift in Sources */,
 				51D0C15B2744D2C30031FB37 /* Localisation.swift in Sources */,
 				51D0C1612744D32F0031FB37 /* MyTradeMeViewController.swift in Sources */,

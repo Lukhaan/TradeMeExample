@@ -28,3 +28,44 @@ extension UIColor {
        )
     }
 }
+
+extension UIView {
+    func addAction(action :@escaping () -> Void) {
+        let tapRecogniser = ClickListener(target: self, action: #selector(onViewClicked(sender:)))
+        tapRecogniser.onClick = action
+        self.isUserInteractionEnabled = true
+        self.addGestureRecognizer(tapRecogniser)
+     }
+    
+    class ClickListener: UITapGestureRecognizer {
+        var onClick : (() -> Void)?
+    }
+    
+    @objc func onViewClicked(sender: ClickListener) {
+        if let onClick = sender.onClick {
+            onClick()
+        }
+    }
+}
+
+extension UIViewController {
+    func showToast(message : String) {
+        let frameWidth = self.view.frame.width * 0.8
+        
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width / 2 - frameWidth / 2, y: self.view.frame.size.height * 0.8, width: frameWidth, height: 60))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = UIFont.systemFont(ofSize: UIFont.labelFontSize)
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 1, delay: 1, options: .curveEaseOut, animations: {
+             toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    }
+}

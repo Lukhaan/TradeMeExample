@@ -13,18 +13,20 @@ class MainViewController: UITabBarController {
         super.viewDidLoad()
         
         viewControllers = [
-            createNavController(rootViewController: DiscoverViewController(), title: "Discover", image: UIImage(named: "Discover")),
-            createNavController(rootViewController: NotificationsViewController(), title: "Notifications", image: UIImage(named: "Notifications")),
-            createNavController(rootViewController: WatchlistViewController(), title: "Watchlist", image: UIImage(named: "Watchlist")),
-            createNavController(rootViewController: MyTradeMeViewController(), title: "My Trade Me", image: UIImage(named: "Account")),
+            createNavController(rootViewController: DiscoverViewController(), title: "Discover", icon: Icon.Search),
+            createNavController(rootViewController: NotificationsViewController(), title: "Notifications", icon: Icon.Notification),
+            createNavController(rootViewController: WatchlistViewController(), title: "Watchlist", icon: Icon.Watchlist),
+            createNavController(rootViewController: MyTradeMeViewController(), title: "My Trade Me", icon: Icon.Account),
         ]
+        
+        tabBar.tintColor = Theme.Colors.Tasman500
     }
     
-    fileprivate func createNavController(rootViewController: UIViewController, title: String, image: UIImage?) -> UIViewController {
+    fileprivate func createNavController(rootViewController: UIViewController, title: String, icon: Icon) -> UIViewController {
         let navController = UINavigationController(rootViewController: rootViewController)
         navController.tabBarItem.title = title
-        navController.tabBarItem.image = image
-        rootViewController.navigationItem.title = title
+        navController.tabBarItem.image = UIImage(named: icon.rawValue)
+        navController.isNavigationBarHidden = true
         return navController
     }
 }

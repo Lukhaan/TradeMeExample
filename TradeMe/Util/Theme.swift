@@ -8,13 +8,11 @@
 import Foundation
 import UIKit
 
-struct Theme {
-    //Todo fonts??
-    
+class Theme {
     struct Colors {
-        let Tasman500 = UIColor(rgb: 0x148FE2)
-        let Feijoa500 = UIColor(rgb: 0x29A754)
-        let TextDark = UIColor(rgb: 0x393531)
-        let TextLight = UIColor(rgb: 0x85807B)
+        static let Tasman500 = UIColor(rgb: 0x148FE2)
+        static let Feijoa500 = UIColor(rgb: 0x29A754)
+        static let TextDark = UIColor(rgb: 0x393531)
+        static let TextLight = UIColor(rgb: 0x85807B)
     }
 }
