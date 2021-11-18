@@ -9,12 +9,12 @@ import Foundation
 import UIKit
 
 struct ListingViewModel {
-    let icon: UIImage
+    let iconUrl: String?
     let headerViewData: TextViewData
     let footerViewData: TextViewData
     
     struct TextViewData {
-        let subtitle: String
+        let subtitle: String?
         let title: String
     }
 }

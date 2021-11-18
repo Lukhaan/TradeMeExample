@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
 
 extension UIColor {
     ///Initialize a color using rgb values
@@ -80,16 +81,24 @@ extension ReusableView where Self: UIView {
     }
 }
 
-extension UICollectionView {
-    func register<T: UICollectionViewCell>(_ : T.Type) where T: ReusableView {
-        register(T.self, forCellWithReuseIdentifier: T.defaultReuseIdentifier)
+extension UIImageView {
+    convenience init(icon: Icon) {
+        self.init(image: UIImage(named: icon.rawValue))
     }
+}
 
-    func dequeueReusableCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T where T: ReusableView {
-        register(T.self)
-        guard let cell = dequeueReusableCell(withReuseIdentifier: T.defaultReuseIdentifier, for: indexPath) as? T else {
-            fatalError("Could not dequeue cell with identifier: \(T.defaultReuseIdentifier)")
+extension Mappable {
+    init?(jsonString: JSON) {
+        guard let data = jsonString.rawString()!.data(using: .utf8) else { return nil }
+        
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(EpochDateFormatter())
+        
+        do {
+            self = try decoder.decode(Self.self, from: data)
+        } catch {
+            print(error)
+            return nil
         }
-        return cell
     }
 }

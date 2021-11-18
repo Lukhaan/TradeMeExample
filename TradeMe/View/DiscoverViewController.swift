@@ -9,72 +9,53 @@ import Foundation
 import UIKit
 
 class DiscoverViewController: BaseViewController {
+    
+    var tableView = ListingTableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let navBar = buildNavigationView()
-        self.view.addSubview(navBar)
-        navBar.translatesAutoresizingMaskIntoConstraints = false
-        navBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        navBar.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.95).isActive = true
-        navBar.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        navBar.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.05).isActive = true
+        buildNavigationView()
         
-        //Subscibe to viewModel
+        tableView.register(ListingCell.self, forCellReuseIdentifier: "ListingCell")
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
         
-        
-        //Request data
+        //TODO Subscribe to view model & request data
+        ServerManager.instance.get(endpoint: Endpoints.LatestListings, completionHandler: {(res: ListingResponse?, err) in
+            
+            if err != nil {
+                //Todo display alert
+                print(err?.message)
+            }
+            
+            guard let collectionViewData = res?.List.map({
+                ListingViewModel(
+                    iconUrl: $0.PictureHref,
+                    headerViewData: ListingViewModel.TextViewData(subtitle: $0.Region, title: $0.Title),
+                    footerViewData: ListingViewModel.TextViewData(subtitle: $0.HumanReadableReserveState, title: $0.PriceDisplay))
+            }) else { return }
+            
+            self.tableView.setData(newData: collectionViewData)
+        })
     }
     
-    func buildNavigationView() -> UIView {
-        let spacer = UIView()
-        
-        let title = UILabel()
-        title.text = "Browse"
-        title.font = .boldSystemFont(ofSize: 17)
-        
-        let searchIcon = UIImageView(icon: .Search)
-        searchIcon.tintColor = Theme.Colors.Tasman500
-        searchIcon.addAction { [weak self] in
+    func buildNavigationView() {
+        let searchIcon = NavBarIconButton(icon: .Search, onClick: { [weak self] in
             guard let self = self else { return }
             self.showToast(message: "Search button tapped.")
-        }
-        searchIcon.heightAnchor.constraint(equalTo: searchIcon.widthAnchor).isActive = true
+        })
+        searchIcon.tintColor = Theme.Colors.Tasman500
         
-        let cartIcon = UIImageView(icon: .Cart)
-        cartIcon.tintColor = Theme.Colors.Tasman500
-        cartIcon.addAction { [weak self] in
+        let cartIcon = NavBarIconButton(icon: .Cart, onClick: { [weak self] in
             guard let self = self else { return }
             self.showToast(message: "Cart button tapped.")
-        }
-        cartIcon.heightAnchor.constraint(equalTo: cartIcon.widthAnchor).isActive = true
+        })
+        cartIcon.tintColor = Theme.Colors.Tasman500
         
-        let titleStackView = UIStackView(arrangedSubviews: [
-            spacer, title
-        ])
-        titleStackView.distribution = .fillEqually
-        titleStackView.alignment = .center
-        
-        let iconStackView = UIStackView(arrangedSubviews: [
-            searchIcon, cartIcon
-        ])
-        iconStackView.spacing = 20
-        iconStackView.alignment = .trailing
-        
-        let stackView = UIStackView(arrangedSubviews: [
-            titleStackView,
-            iconStackView
-        ])
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.distribution = .fillProportionally
-        stackView.alignment = .fill
-        stackView.spacing = 10
-        return stackView
-    }
-}
-
-extension UIImageView {
-    convenience init(icon: Icon) {
-        self.init(image: UIImage(named: icon.rawValue))
+        navigationItem.rightBarButtonItems = [cartIcon, searchIcon]
     }
 }

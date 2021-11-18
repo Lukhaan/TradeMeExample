@@ -14,7 +14,6 @@ class MainViewController: UITabBarController {
         
         viewControllers = [
             createNavController(rootViewController: DiscoverViewController(), title: "Discover", icon: Icon.Search),
-            createNavController(rootViewController: NotificationsViewController(), title: "Notifications", icon: Icon.Notification),
             createNavController(rootViewController: WatchlistViewController(), title: "Watchlist", icon: Icon.Watchlist),
             createNavController(rootViewController: MyTradeMeViewController(), title: "My Trade Me", icon: Icon.Account),
         ]
@@ -26,7 +25,7 @@ class MainViewController: UITabBarController {
         let navController = UINavigationController(rootViewController: rootViewController)
         navController.tabBarItem.title = title
         navController.tabBarItem.image = UIImage(named: icon.rawValue)
-        navController.isNavigationBarHidden = true
+        rootViewController.navigationItem.title = title
         return navController
     }
 }
