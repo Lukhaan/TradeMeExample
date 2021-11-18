@@ -32,14 +32,18 @@ class DiscoverViewController: BaseViewController {
                 print(err?.message)
             }
             
-            guard let collectionViewData = res?.List.map({
+            guard let tableViewData = res?.List.map({
                 ListingViewModel(
                     iconUrl: $0.PictureHref,
                     headerViewData: ListingViewModel.TextViewData(subtitle: $0.Region, title: $0.Title),
                     footerViewData: ListingViewModel.TextViewData(subtitle: $0.HumanReadableReserveState, title: $0.PriceDisplay))
             }) else { return }
             
-            self.tableView.setData(newData: collectionViewData)
+            self.tableView.setData(newData: tableViewData)
+            self.tableView.onTap = {[weak self] (data: ListingViewModel) in
+                guard let self = self else { return }
+                self.showToast(message: "\(data.headerViewData.title) tapped")
+            }
         })
     }
     

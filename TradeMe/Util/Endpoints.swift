@@ -8,7 +8,7 @@
 import Foundation
 
 struct Endpoints {
-    static var LatestListings = Endpoint(url: "https://api.tmsandbox.co.nz/v1/listings/latest.json?row=20", requestType: .Get)
+    static var LatestListings = Endpoint(url: "https://api.tmsandbox.co.nz/v1/listings/latest.json?rows=20", requestType: .Get)
 }
 
 struct Endpoint {

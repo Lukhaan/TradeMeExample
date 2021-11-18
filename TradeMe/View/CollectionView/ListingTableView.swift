@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class ListingTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+    var onTap: ((_: ListingViewModel) -> Void)?
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ListingCell = self.dequeueReusableCell(withIdentifier: "ListingCell", for: indexPath) as! ListingCell
         
@@ -24,6 +26,11 @@ class ListingTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
         data = newData
         reloadData()
         layoutIfNeeded()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = data[indexPath.row]
+        onTap?(data)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
