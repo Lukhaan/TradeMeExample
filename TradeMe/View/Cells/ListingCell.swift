@@ -12,8 +12,13 @@ class ListingCell: UITableViewCell, ReusableView {
     var image = UIImageView()
     var headerSubtitle = UILabel()
     var headerTitle = UILabel()
-    var footerTitle = UILabel()
-    var footerSubtitle = UILabel()
+    var leftFooterTitle = UILabel()
+    var leftFooterSubtitle = UILabel()
+    var rightFooterTitle = UILabel()
+    var rightFooterSubtitle = UILabel()
+    
+    var headerStackView: UIStackView?
+    var footerStackView: UIStackView?
     
     var data: ListingViewModel? { didSet {
         guard let data = data else { return }
@@ -32,8 +37,10 @@ class ListingCell: UITableViewCell, ReusableView {
     
         headerSubtitle.text = data.headerViewData.subtitle
         headerTitle.text = data.headerViewData.title
-        footerTitle.text = data.footerViewData.title
-        footerSubtitle.text = data.footerViewData.subtitle
+        leftFooterTitle.text = data.leftFooterViewData.title
+        leftFooterSubtitle.text = data.leftFooterViewData.subtitle
+        rightFooterTitle.text = data.rightFooterViewData.title
+        rightFooterSubtitle.text = data.rightFooterViewData.subtitle
     }}
     
     func getHeaderStackView() -> UIStackView {
@@ -41,7 +48,7 @@ class ListingCell: UITableViewCell, ReusableView {
         headerSubtitle.font = .systemFont(ofSize: UIFont.systemFontSize)
         
         headerTitle.tintColor = Theme.Colors.TextDark
-        footerSubtitle.tintColor = Theme.Colors.TextLight
+        headerSubtitle.tintColor = Theme.Colors.TextLight
         
         let s = UIStackView(arrangedSubviews: [
             headerSubtitle,
@@ -53,25 +60,47 @@ class ListingCell: UITableViewCell, ReusableView {
     }
     
     func getFooterStackView() -> UIStackView {
-        footerTitle.font = .boldSystemFont(ofSize: UIFont.labelFontSize)
-        footerSubtitle.font = .systemFont(ofSize: UIFont.systemFontSize)
+        leftFooterTitle.font = .boldSystemFont(ofSize: UIFont.labelFontSize)
+        leftFooterSubtitle.font = .systemFont(ofSize: UIFont.systemFontSize)
         
-        footerTitle.tintColor = Theme.Colors.TextDark
-        footerSubtitle.tintColor = Theme.Colors.TextLight
+        leftFooterTitle.tintColor = Theme.Colors.TextDark
+        leftFooterSubtitle.tintColor = Theme.Colors.TextLight
         
-        let s = UIStackView(arrangedSubviews: [
-            footerTitle,
-            footerSubtitle,
+        let leftFooter = UIStackView(arrangedSubviews: [
+            leftFooterTitle,
+            leftFooterSubtitle,
         ])
-        s.axis = .vertical
-        s.alignment = .leading
-        return s
+        leftFooter.axis = .vertical
+        leftFooter.alignment = .leading
+        
+        rightFooterTitle.font = .boldSystemFont(ofSize: UIFont.labelFontSize)
+        rightFooterSubtitle.font = .systemFont(ofSize: UIFont.systemFontSize)
+        
+        rightFooterTitle.tintColor = Theme.Colors.TextDark
+        rightFooterSubtitle.tintColor = Theme.Colors.TextLight
+        
+        let rightFooter = UIStackView(arrangedSubviews: [
+            rightFooterTitle,
+            rightFooterSubtitle,
+        ])
+        rightFooter.axis = .vertical
+        rightFooter.alignment = .trailing
+        
+        let footerStackView = UIStackView()
+        footerStackView.addArrangedSubview(leftFooter)
+        footerStackView.addArrangedSubview(rightFooter)
+        footerStackView.axis = .horizontal
+        footerStackView.distribution = .equalCentering
+        return footerStackView
     }
     
     func getTextStackView() -> UIStackView {
+        headerStackView = getHeaderStackView()
+        footerStackView = getFooterStackView()
+        
         let s = UIStackView(arrangedSubviews: [
-            getHeaderStackView(),
-            getFooterStackView(),
+            headerStackView!,
+            footerStackView!
         ])
         s.axis = .vertical
         s.alignment = .leading
@@ -85,16 +114,20 @@ class ListingCell: UITableViewCell, ReusableView {
         image.layer.cornerRadius = 5
         image.clipsToBounds = true
         image.widthAnchor.constraint(equalTo: image.heightAnchor).isActive = true
+        image.backgroundColor = .lightGray
         
         let textStackView = getTextStackView()
         textStackView.axis = .vertical
-        textStackView.distribution = .equalSpacing
+        textStackView.distribution = .equalCentering
         
         let stackView = UIStackView(arrangedSubviews: [
             image,
             textStackView,
         ])
         addSubview(stackView)
+        
+        footerStackView?.translatesAutoresizingMaskIntoConstraints = false
+        footerStackView?.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true

@@ -34,8 +34,12 @@ class ServerManager {
                 completionHandler(Res(jsonString: res), nil)
                 break
             case .failure(let response):
-                completionHandler(nil, ResponseError(statusCode: response.errorCode, message: response.description))
-                break;
+                print(response.errorCode)
+                switch response.errorCode {
+//                case:
+                default:
+                    completionHandler(nil, ResponseError(statusCode: response.errorCode, message: "Oops, somethign went wrong"))
+                }
             }
         })
     }

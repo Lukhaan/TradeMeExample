@@ -7,7 +7,7 @@ target 'TradeMe' do
 
   # Pods for TradeMe
   pod 'SwiftyJSON'
-  pod 'OAuthSwift', '~> 2.2.0'
+  pod 'OAuthSwift'
   
   target 'TradeMeTests' do
     inherit! :search_paths

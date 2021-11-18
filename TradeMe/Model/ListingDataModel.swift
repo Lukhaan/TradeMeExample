@@ -46,6 +46,8 @@ struct ListingDataModel: Mappable {
     let ListingId: Int
     let PromotionId: Int?
     let MemberId: Int
+    let BuyNowPrice: Double?
+    let HasBuyNow: Bool?
     //Todo all data is null check what datatype comes back
 //    let listingLength: Date
     let Region: String

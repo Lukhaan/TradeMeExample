@@ -11,7 +11,8 @@ import UIKit
 struct ListingViewModel {
     let iconUrl: String?
     let headerViewData: TextViewData
-    let footerViewData: TextViewData
+    let leftFooterViewData: TextViewData
+    let rightFooterViewData: TextViewData
     
     struct TextViewData {
         let subtitle: String?

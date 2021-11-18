@@ -3,7 +3,7 @@ PODS:
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
-  - OAuthSwift (~> 2.2.0)
+  - OAuthSwift
   - SwiftyJSON
 
 SPEC REPOS:
@@ -15,6 +15,6 @@ SPEC CHECKSUMS:
   OAuthSwift: 75efbb5bd9a4b2b71a37bd7e986bf3f55ddd54c6
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 7aef4b6c3bafe40a9ffe07e0922ae5b5002098ba
+PODFILE CHECKSUM: 974e05aa5dbf06cfe95e45998094fa61ff49c312
 
 COCOAPODS: 1.11.2

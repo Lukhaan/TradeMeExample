@@ -24,19 +24,23 @@ class DiscoverViewController: BaseViewController {
         tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
         
-        //TODO Subscribe to view model & request data
         ServerManager.instance.get(endpoint: Endpoints.LatestListings, completionHandler: {(res: ListingResponse?, err) in
             
             if err != nil {
-                //Todo display alert
-                print(err?.message)
+                let alert = UIAlertController(title: "Error", message: "\(err!.message)", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                    self.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alert, animated: true, completion: nil)
             }
             
             guard let tableViewData = res?.List.map({
                 ListingViewModel(
                     iconUrl: $0.PictureHref,
                     headerViewData: ListingViewModel.TextViewData(subtitle: $0.Region, title: $0.Title),
-                    footerViewData: ListingViewModel.TextViewData(subtitle: $0.HumanReadableReserveState, title: $0.PriceDisplay))
+                    leftFooterViewData: ListingViewModel.TextViewData(subtitle: $0.HumanReadableReserveState, title: $0.PriceDisplay),
+                    rightFooterViewData: ListingViewModel.TextViewData(subtitle: $0.HasBuyNow ?? false ? "Buy Now" : "", title: $0.HasBuyNow ?? false ? "\($0.BuyNowPrice!)" : "")
+                )
             }) else { return }
             
             self.tableView.setData(newData: tableViewData)
