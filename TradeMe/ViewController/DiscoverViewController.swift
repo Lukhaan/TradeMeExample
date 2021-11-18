@@ -16,8 +16,8 @@ class DiscoverViewController: BaseViewController {
         super.viewDidLoad()
         buildNavigationView()
         
-        tableView.register(ListingCell.self, forCellReuseIdentifier: "ListingCell")
         view.addSubview(tableView)
+        tableView.register(ListingCell.self, forCellReuseIdentifier: "ListingCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
@@ -39,7 +39,7 @@ class DiscoverViewController: BaseViewController {
                     iconUrl: $0.PictureHref,
                     headerViewData: ListingViewModel.TextViewData(subtitle: $0.Region, title: $0.Title),
                     leftFooterViewData: ListingViewModel.TextViewData(subtitle: $0.HumanReadableReserveState, title: $0.PriceDisplay),
-                    rightFooterViewData: ListingViewModel.TextViewData(subtitle: $0.HasBuyNow ?? false ? "Buy Now" : "", title: $0.HasBuyNow ?? false ? "\($0.BuyNowPrice!)" : "")
+                    rightFooterViewData: ListingViewModel.TextViewData(subtitle: $0.HasBuyNow ?? false ? "Buy Now" : "", title: $0.HasBuyNow ?? false ? "$\($0.BuyNowPrice!)0" : "")
                 )
             }) else { return }
             

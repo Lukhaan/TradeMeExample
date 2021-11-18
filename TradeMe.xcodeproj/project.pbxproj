@@ -21,7 +21,6 @@
 		51D0C1552744C9E20031FB37 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C1542744C9E20031FB37 /* DiscoverViewController.swift */; };
 		51D0C1572744D1950031FB37 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C1562744D1950031FB37 /* Extensions.swift */; };
 		51D0C1592744D2770031FB37 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C1582744D2770031FB37 /* Theme.swift */; };
-		51D0C15B2744D2C30031FB37 /* Localisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C15A2744D2C30031FB37 /* Localisation.swift */; };
 		51D0C15F2744D3090031FB37 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C15E2744D3090031FB37 /* WatchlistViewController.swift */; };
 		51D0C1612744D32F0031FB37 /* MyTradeMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C1602744D32F0031FB37 /* MyTradeMeViewController.swift */; };
 		51D0C1632744D4000031FB37 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C1622744D4000031FB37 /* BaseViewController.swift */; };
@@ -75,7 +74,6 @@
 		51D0C1542744C9E20031FB37 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		51D0C1562744D1950031FB37 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		51D0C1582744D2770031FB37 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		51D0C15A2744D2C30031FB37 /* Localisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localisation.swift; sourceTree = "<group>"; };
 		51D0C15E2744D3090031FB37 /* WatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewController.swift; sourceTree = "<group>"; };
 		51D0C1602744D32F0031FB37 /* MyTradeMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTradeMeViewController.swift; sourceTree = "<group>"; };
 		51D0C1622744D4000031FB37 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -139,15 +137,25 @@
 			path = JsonSerialization;
 			sourceTree = "<group>";
 		};
+		5170A6F727463E7F00EECE3C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				51D0C1542744C9E20031FB37 /* DiscoverViewController.swift */,
+				51D0C15E2744D3090031FB37 /* WatchlistViewController.swift */,
+				51D0C1602744D32F0031FB37 /* MyTradeMeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		51D0C111274444C00031FB37 = {
 			isa = PBXGroup;
 			children = (
+				4E89C57BCE146BC1B497FB43 /* Frameworks */,
+				8C411EABD4F7A9CBB65BC6C7 /* Pods */,
+				51D0C11B274444C00031FB37 /* Products */,
 				51D0C11C274444C00031FB37 /* TradeMe */,
 				51D0C133274444C20031FB37 /* TradeMeTests */,
 				51D0C13D274444C20031FB37 /* TradeMeUITests */,
-				51D0C11B274444C00031FB37 /* Products */,
-				8C411EABD4F7A9CBB65BC6C7 /* Pods */,
-				4E89C57BCE146BC1B497FB43 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,16 +172,17 @@
 		51D0C11C274444C00031FB37 /* TradeMe */ = {
 			isa = PBXGroup;
 			children = (
-				51D0C1502744C3C20031FB37 /* Util */,
-				51D0C14F2744C1C60031FB37 /* View */,
-				51D0C14E2744C1BB0031FB37 /* Model */,
-				51D0C14D2744C1B10031FB37 /* ViewModel */,
+				51D0C12B274444C20031FB37 /* Info.plist */,
 				51D0C11D274444C00031FB37 /* AppDelegate.swift */,
-				51D0C121274444C00031FB37 /* MainViewController.swift */,
 				51D0C1622744D4000031FB37 /* BaseViewController.swift */,
+				51D0C121274444C00031FB37 /* MainViewController.swift */,
 				51D0C126274444C20031FB37 /* Assets.xcassets */,
 				51D0C128274444C20031FB37 /* LaunchScreen.storyboard */,
-				51D0C12B274444C20031FB37 /* Info.plist */,
+				51D0C14E2744C1BB0031FB37 /* Model */,
+				51D0C1502744C3C20031FB37 /* Util */,
+				51D0C14F2744C1C60031FB37 /* View */,
+				5170A6F727463E7F00EECE3C /* ViewController */,
+				51D0C14D2744C1B10031FB37 /* ViewModel */,
 			);
 			path = TradeMe;
 			sourceTree = "<group>";
@@ -214,11 +223,8 @@
 		51D0C14F2744C1C60031FB37 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				51D0C16F2745A0360031FB37 /* ListingTableView.swift */,
 				51D0C1712745A22B0031FB37 /* Cells */,
-				51D0C1662744EDAB0031FB37 /* CollectionView */,
-				51D0C1542744C9E20031FB37 /* DiscoverViewController.swift */,
-				51D0C15E2744D3090031FB37 /* WatchlistViewController.swift */,
-				51D0C1602744D32F0031FB37 /* MyTradeMeViewController.swift */,
 				51D0C1742745D1F80031FB37 /* NavBarIconButton.swift */,
 			);
 			path = View;
@@ -231,20 +237,11 @@
 				51D0C1512744C3CD0031FB37 /* ServerManager.swift */,
 				51D0C1562744D1950031FB37 /* Extensions.swift */,
 				51D0C1582744D2770031FB37 /* Theme.swift */,
-				51D0C15A2744D2C30031FB37 /* Localisation.swift */,
 				51D0C1642744D5360031FB37 /* Icon.swift */,
 				5170A6F32745E38900EECE3C /* Endpoints.swift */,
 				5170A6F5274613A900EECE3C /* Credentials.swift */,
 			);
 			path = Util;
-			sourceTree = "<group>";
-		};
-		51D0C1662744EDAB0031FB37 /* CollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				51D0C16F2745A0360031FB37 /* ListingTableView.swift */,
-			);
-			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		51D0C1712745A22B0031FB37 /* Cells */ = {
@@ -511,7 +508,6 @@
 				51D0C1532744C4430031FB37 /* AppDelegate.swift in Sources */,
 				51D0C1652744D5360031FB37 /* Icon.swift in Sources */,
 				51D0C1632744D4000031FB37 /* BaseViewController.swift in Sources */,
-				51D0C15B2744D2C30031FB37 /* Localisation.swift in Sources */,
 				51D0C1612744D32F0031FB37 /* MyTradeMeViewController.swift in Sources */,
 				51D0C16C2744FF340031FB37 /* ListingDataModel.swift in Sources */,
 				51D0C1552744C9E20031FB37 /* DiscoverViewController.swift in Sources */,

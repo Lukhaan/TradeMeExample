@@ -36,7 +36,6 @@ class ServerManager {
             case .failure(let response):
                 print(response.errorCode)
                 switch response.errorCode {
-//                case:
                 default:
                     completionHandler(nil, ResponseError(statusCode: response.errorCode, message: "Oops, somethign went wrong"))
                 }
