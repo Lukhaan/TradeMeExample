@@ -8,13 +8,40 @@
 import Foundation
 import UIKit
 
-class DiscoverViewController: BaseViewController {
+class DiscoverViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
+    var tableView = UITableView()
+    var data: [ListingViewModel] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
-    var tableView = ListingTableView()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = data[indexPath.row]
+        self.showToast(message: "\(data.headerViewData.title) tapped")
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: ListingCell = tableView.dequeueReusableCell(withIdentifier: "ListingCell", for: indexPath) as! ListingCell
+            let data = data[indexPath.row] as ListingViewModel
+            cell.data = data
+            return cell
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         buildNavigationView()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        let cellHeight: CGFloat = UIScreen.main.bounds.width * 0.25
+        tableView.estimatedRowHeight = cellHeight
+        tableView.rowHeight = cellHeight
         
         view.addSubview(tableView)
         tableView.register(ListingCell.self, forCellReuseIdentifier: "ListingCell")
@@ -25,7 +52,6 @@ class DiscoverViewController: BaseViewController {
         tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
         
         ServerManager.instance.get(endpoint: Endpoints.LatestListings, completionHandler: {(res: ListingResponse?, err) in
-            
             if err != nil {
                 let alert = UIAlertController(title: "Error", message: "\(err!.message)", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
@@ -38,17 +64,26 @@ class DiscoverViewController: BaseViewController {
                 ListingViewModel(
                     iconUrl: $0.PictureHref,
                     headerViewData: ListingViewModel.TextViewData(subtitle: $0.Region, title: $0.Title),
-                    leftFooterViewData: ListingViewModel.TextViewData(subtitle: $0.HumanReadableReserveState, title: $0.PriceDisplay),
+                    leftFooterViewData: ListingViewModel.TextViewData(subtitle: self.getHumanReadableReserveState(state: $0.ReserveState), title: $0.PriceDisplay),
                     rightFooterViewData: ListingViewModel.TextViewData(subtitle: $0.HasBuyNow ?? false ? "Buy Now" : "", title: $0.HasBuyNow ?? false ? "$\($0.BuyNowPrice!)0" : "")
                 )
             }) else { return }
             
-            self.tableView.setData(newData: tableViewData)
-            self.tableView.onTap = {[weak self] (data: ListingViewModel) in
-                guard let self = self else { return }
-                self.showToast(message: "\(data.headerViewData.title) tapped")
-            }
+            self.data = tableViewData
         })
+    }
+    
+    func getHumanReadableReserveState(state: Int?) -> String {
+        switch state {
+        case 0:
+            return "No Reserve"
+        case 1:
+            return "Reserve Met"
+        case 2:
+            return "Reserve Not Met"
+        default:
+            return ""
+        }
     }
     
     func buildNavigationView() {

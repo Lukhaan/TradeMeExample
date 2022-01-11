@@ -27,7 +27,6 @@
 		51D0C1652744D5360031FB37 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C1642744D5360031FB37 /* Icon.swift */; };
 		51D0C16A2744EE520031FB37 /* ListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C1692744EE520031FB37 /* ListingViewModel.swift */; };
 		51D0C16C2744FF340031FB37 /* ListingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C16B2744FF340031FB37 /* ListingDataModel.swift */; };
-		51D0C1702745A0360031FB37 /* ListingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C16F2745A0360031FB37 /* ListingTableView.swift */; };
 		51D0C1732745A2340031FB37 /* ListingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C1722745A2340031FB37 /* ListingCell.swift */; };
 		51D0C1752745D1F80031FB37 /* NavBarIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D0C1742745D1F80031FB37 /* NavBarIconButton.swift */; };
 		6231288943421311A3D65F2E /* Pods_TradeMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C91BB44ED9B4E7F9803E9BC3 /* Pods_TradeMe.framework */; };
@@ -80,7 +79,6 @@
 		51D0C1642744D5360031FB37 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		51D0C1692744EE520031FB37 /* ListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewModel.swift; sourceTree = "<group>"; };
 		51D0C16B2744FF340031FB37 /* ListingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDataModel.swift; sourceTree = "<group>"; };
-		51D0C16F2745A0360031FB37 /* ListingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingTableView.swift; sourceTree = "<group>"; };
 		51D0C1722745A2340031FB37 /* ListingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCell.swift; sourceTree = "<group>"; };
 		51D0C1742745D1F80031FB37 /* NavBarIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarIconButton.swift; sourceTree = "<group>"; };
 		5BFF21BACA7BCF502A9C437E /* Pods-TradeMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TradeMeTests.release.xcconfig"; path = "Target Support Files/Pods-TradeMeTests/Pods-TradeMeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -129,22 +127,48 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		514E9806278E2BC200752F37 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				514E9809278E2BE000752F37 /* Account */,
+				514E9808278E2BD900752F37 /* Watchlist */,
+				514E9807278E2BCD00752F37 /* Discover */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		514E9807278E2BCD00752F37 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				51D0C1692744EE520031FB37 /* ListingViewModel.swift */,
+				51D0C1722745A2340031FB37 /* ListingCell.swift */,
+				51D0C1542744C9E20031FB37 /* DiscoverViewController.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		514E9808278E2BD900752F37 /* Watchlist */ = {
+			isa = PBXGroup;
+			children = (
+				51D0C15E2744D3090031FB37 /* WatchlistViewController.swift */,
+			);
+			path = Watchlist;
+			sourceTree = "<group>";
+		};
+		514E9809278E2BE000752F37 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				51D0C1602744D32F0031FB37 /* MyTradeMeViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		5170A6F02745E30D00EECE3C /* JsonSerialization */ = {
 			isa = PBXGroup;
 			children = (
 				5170A6F12745E32800EECE3C /* EpochDateSerializationStrategy.swift */,
 			);
 			path = JsonSerialization;
-			sourceTree = "<group>";
-		};
-		5170A6F727463E7F00EECE3C /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				51D0C1542744C9E20031FB37 /* DiscoverViewController.swift */,
-				51D0C15E2744D3090031FB37 /* WatchlistViewController.swift */,
-				51D0C1602744D32F0031FB37 /* MyTradeMeViewController.swift */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		51D0C111274444C00031FB37 = {
@@ -172,17 +196,16 @@
 		51D0C11C274444C00031FB37 /* TradeMe */ = {
 			isa = PBXGroup;
 			children = (
-				51D0C12B274444C20031FB37 /* Info.plist */,
 				51D0C11D274444C00031FB37 /* AppDelegate.swift */,
-				51D0C1622744D4000031FB37 /* BaseViewController.swift */,
-				51D0C121274444C00031FB37 /* MainViewController.swift */,
 				51D0C126274444C20031FB37 /* Assets.xcassets */,
+				51D0C1622744D4000031FB37 /* BaseViewController.swift */,
+				51D0C12B274444C20031FB37 /* Info.plist */,
 				51D0C128274444C20031FB37 /* LaunchScreen.storyboard */,
+				51D0C121274444C00031FB37 /* MainViewController.swift */,
 				51D0C14E2744C1BB0031FB37 /* Model */,
+				514E9806278E2BC200752F37 /* Pages */,
 				51D0C1502744C3C20031FB37 /* Util */,
 				51D0C14F2744C1C60031FB37 /* View */,
-				5170A6F727463E7F00EECE3C /* ViewController */,
-				51D0C14D2744C1B10031FB37 /* ViewModel */,
 			);
 			path = TradeMe;
 			sourceTree = "<group>";
@@ -204,14 +227,6 @@
 			path = TradeMeUITests;
 			sourceTree = "<group>";
 		};
-		51D0C14D2744C1B10031FB37 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				51D0C1692744EE520031FB37 /* ListingViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		51D0C14E2744C1BB0031FB37 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,8 +238,6 @@
 		51D0C14F2744C1C60031FB37 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				51D0C16F2745A0360031FB37 /* ListingTableView.swift */,
-				51D0C1712745A22B0031FB37 /* Cells */,
 				51D0C1742745D1F80031FB37 /* NavBarIconButton.swift */,
 			);
 			path = View;
@@ -242,14 +255,6 @@
 				5170A6F5274613A900EECE3C /* Credentials.swift */,
 			);
 			path = Util;
-			sourceTree = "<group>";
-		};
-		51D0C1712745A22B0031FB37 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				51D0C1722745A2340031FB37 /* ListingCell.swift */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		8C411EABD4F7A9CBB65BC6C7 /* Pods */ = {
@@ -518,7 +523,6 @@
 				5170A6F6274613A900EECE3C /* Credentials.swift in Sources */,
 				51D0C1522744C3CD0031FB37 /* ServerManager.swift in Sources */,
 				5170A6F42745E38900EECE3C /* Endpoints.swift in Sources */,
-				51D0C1702745A0360031FB37 /* ListingTableView.swift in Sources */,
 				51D0C1752745D1F80031FB37 /* NavBarIconButton.swift in Sources */,
 				51D0C1732745A2340031FB37 /* ListingCell.swift in Sources */,
 			);

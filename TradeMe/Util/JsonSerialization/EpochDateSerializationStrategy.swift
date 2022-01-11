@@ -8,10 +8,6 @@
 import Foundation
 import SwiftyJSON
 
-protocol Mappable: Codable {
-    init?(jsonString: JSON)
-}
-
 class EpochDateFormatter: DateFormatter {
     override public func date(from string:String) -> Date? {
         let prefix = "/Date("

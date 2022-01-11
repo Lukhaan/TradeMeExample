@@ -86,19 +86,3 @@ extension UIImageView {
         self.init(image: UIImage(named: icon.rawValue))
     }
 }
-
-extension Mappable {
-    init?(jsonString: JSON) {
-        guard let data = jsonString.rawString()!.data(using: .utf8) else { return nil }
-        
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .formatted(EpochDateFormatter())
-        
-        do {
-            self = try decoder.decode(Self.self, from: data)
-        } catch {
-            print(error)
-            return nil
-        }
-    }
-}

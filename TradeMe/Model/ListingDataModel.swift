@@ -14,20 +14,7 @@ struct ListingResponse : Response {
     let Page: Int
 }
 
-struct ListingDataModel: Mappable {
-    //ToDo get field info from api documentation
-    var HumanReadableReserveState: String {
-        switch self.ReserveState {
-        case 0:
-            return "No Reserve"
-        case 1:
-            return "Reserve Met"
-        case 2:
-            return "Reserve Not Met"
-        default:
-            return ""
-        }
-    }
+struct ListingDataModel: Codable {
     let ReserveState: Int?
     let Company: String?
     let IsClassified: Bool?
